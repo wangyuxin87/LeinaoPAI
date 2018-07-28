@@ -1,5 +1,6 @@
 ## LeinaoPAI
 欢迎大家将镜像的dockerfile分享出来
+
 当有编译镜像需求时，提交pull request到本项目，要求：
 1. 统一放置在images目录下
 2. 每个镜像一个子目录，目录名称为"镜像名称.tag"，如 ”ubuntu.16.04-ssh"
