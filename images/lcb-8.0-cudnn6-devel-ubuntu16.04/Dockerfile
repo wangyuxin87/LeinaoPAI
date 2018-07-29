@@ -89,7 +89,11 @@ RUN	pip install opencv-python easydict  && \
 		ipython \
 		jupyter \
 		SimpleITK \
-		tqdm     && \
+		pydicom \
+		tqdm \
+		cffi \
+		tensorboardX \
+		tensorflow-gpu==1.4.0 && \
     pip install -i https://pypi.tuna.tsinghua.edu.cn/simple/ torch torchvision &&\
 	git clone https://github.com/NVIDIA/nccl.git && cd nccl && make -j install
 
