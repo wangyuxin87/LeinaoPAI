@@ -1,20 +1,20 @@
-#### dockerfile编写示例
+# Dockerfile for Faster RCNN
 
-```
-FROM ubuntu:16.04
+------
 
-MAINTAINER xwzheng@leinao.ai
+Dockerfile for Boss Liu
 
-RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list && \ # 修改为科大源，非必选项
-    apt update && \
-    apt install -y openssh-client openssh-server && \ # 为了使镜像支持ssh，需安装ssh服务
-    apt clean
+特性
+=============
+> * caffe
+> * pytorch
+> * tensorflow 1.4.0
 
-```
+最新添加
+=============
+> * cffi
+> * tensorboardX
 
-#### 镜像编译命令
+* * *
 
-```
-docker build ./images/ubuntu.16.04-ssh/ -t ubuntu:16.04-ssh
-```
-
+## 如有其他疑问请联系本人 lcb592@mail.ustc.edu.cn
