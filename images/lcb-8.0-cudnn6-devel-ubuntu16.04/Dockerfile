@@ -72,6 +72,7 @@ RUN	pip install opencv-python easydict  && \
 		python-pip \
 		python3-pip \
 		python3-tk \
+		time \
           && \
 	pip install numpy \
 		scipy \
@@ -94,6 +95,7 @@ RUN	pip install opencv-python easydict  && \
 		cffi \
 		tensorboardX \
 		tensorflow-gpu==1.4.0 && \
-    pip install -i https://pypi.tuna.tsinghua.edu.cn/simple/ torch torchvision &&\
+    pip install torch==0.4.0 torchvision \
+    	cython &&\
 	git clone https://github.com/NVIDIA/nccl.git && cd nccl && make -j install
 
