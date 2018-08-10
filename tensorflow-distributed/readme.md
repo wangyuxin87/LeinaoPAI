@@ -2,8 +2,7 @@
 LeinaoPAI支持分布式训练任务，每个container对外通信端口为3个，在container内部映射为10001,10002,10003，container外访问需要使用外部端口号。外部端口号随机分配，可查看环境变量`PAI_PORT_LIST_{taskRole.name}_{taskIndex}`。  
   
 分布式tensorflow代码示例[mnist_replica.py](https://github.com/feng257/LeinaoPAI/blob/master/tensorflow-distributed/mnist_replica.py)  
-将在类脑测试平台提交测试任务，登录分配的container后，将代码拷贝到类脑平台个人目录，具体方式请参考[这里](https://www.bitahub.com/views/article-detail.html?articleId=_f0bf8a2c89b94945bb95c83e97815039)
-
+  
 编写任务提交脚本
 
 ```json
@@ -18,7 +17,7 @@ LeinaoPAI支持分布式训练任务，每个container对外通信端口为3个�
       "cpuNumber": 2,
       "memoryMB": 8192,
       "gpuNumber": 0,
-      "command": "python /userhome/tensorflow-distributed/code/mnist_replica.py  --num_gpus=0 --batch_size=32 --data_dir=/userhome/tensorflow-distributed/data  --train_dir=/userhome/tensorflow-distributed/output --ps_hosts=$PAI_TASK_ROLE_ps_HOST_LIST --worker_hosts=$PAI_TASK_ROLE_worker_HOST_LIST --job_name=ps --task_index=$PAI_CURRENT_TASK_ROLE_CURRENT_TASK_INDEX"
+      "command": "python /gdata/tensorflow-distributed/code/mnist_replica.py  --num_gpus=0 --batch_size=32 --data_dir=/gdata/tensorflow-distributed/data  --train_dir=/userhome/tensorflow-distributed/output --ps_hosts=$PAI_TASK_ROLE_ps_HOST_LIST --worker_hosts=$PAI_TASK_ROLE_worker_HOST_LIST --job_name=ps --task_index=$PAI_CURRENT_TASK_ROLE_CURRENT_TASK_INDEX"
     },
     {
       "name": "worker",
@@ -26,7 +25,7 @@ LeinaoPAI支持分布式训练任务，每个container对外通信端口为3个�
       "cpuNumber": 2,
       "memoryMB": 16384,
       "gpuNumber": 2,
-      "command": "python /userhome/tensorflow-distributed/code/mnist_replica.py  --num_gpus=2 --batch_size=32 --data_dir=/userhome/tensorflow-distributed/data  --train_dir=/userhome/tensorflow-distributed/output --ps_hosts=$PAI_TASK_ROLE_ps_HOST_LIST --worker_hosts=$PAI_TASK_ROLE_worker_HOST_LIST --job_name=worker --task_index=$PAI_CURRENT_TASK_ROLE_CURRENT_TASK_INDEX"
+      "command": "python /gdata/tensorflow-distributed/code/mnist_replica.py  --num_gpus=2 --batch_size=32 --data_dir=/gdata/tensorflow-distributed/data  --train_dir=/userhome/tensorflow-distributed/output --ps_hosts=$PAI_TASK_ROLE_ps_HOST_LIST --worker_hosts=$PAI_TASK_ROLE_worker_HOST_LIST --job_name=worker --task_index=$PAI_CURRENT_TASK_ROLE_CURRENT_TASK_INDEX"
     }
   ],
   "killAllOnCompletedTaskNumber": 2, (**该参数请保持与worker的taskNumber一致**)
@@ -51,4 +50,7 @@ LeinaoPAI支持分布式训练任务，每个container对外通信端口为3个�
 | PAI_PORT_MAP_10002 | 容器内部映射端口10002 |
 | PAI_PORT_MAP_10003 | 容器内部映射端口10003 |
   
-**更多环境变量信息请参考任务日志，进入任务列表-->点击具体任务-->点击 Go to Tracking Page**
+**更多环境变量信息请参考任务日志，进入任务列表-->点击具体任务-->点击 Go to Tracking Page**  
+  
+任务提交方式请查看[这里](https://www.bitahub.com/views/article-detail.html?articleId=_f0bf8a2c89b94945bb95c83e97815039)  
+查看代码结果及模型，在[类脑测试平台](https://202.38.95.226:7443)提交测试任务，登录分配的container后，查看/userhome/tensorflow-distributed/output，具体方式请参考[这里](https://www.bitahub.com/views/article-detail.html?articleId=_f0bf8a2c89b94945bb95c83e97815039)  
