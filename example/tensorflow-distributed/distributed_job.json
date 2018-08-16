@@ -1,5 +1,5 @@
 {
-  "jobName": "ustc-distributed",
+  "jobName": "tensorflow-distributed-001",
   "image": "10.11.3.8:5000/pai-images/pai.run.deepo:v1.1",
 
   "taskRoles": [
@@ -9,7 +9,7 @@
       "cpuNumber": 2,
       "memoryMB": 8192,
       "gpuNumber": 0,     
-      "command": "env && python /gdata/tensorflow-distributed/code/mnist_replica.py  --num_gpus=0 --batch_size=32 --data_dir=/gdata/tensorflow-distributed/data  --train_dir=/userhome/tensorflow-distributed/output --ps_hosts=$PAI_TASK_ROLE_ps_HOST_LIST --worker_hosts=$PAI_TASK_ROLE_worker_HOST_LIST --job_name=ps --task_index=$PAI_CURRENT_TASK_ROLE_CURRENT_TASK_INDEX"
+      "command": "cd /userhome && wget -c https://raw.githubusercontent.com/Leinao/LeinaoPAI/master/example/tensorflow-distributed/mnist_replica.py && python /userhome/mnist_replica.py  --num_gpus=0 --batch_size=32 --data_dir=/gdata/MNIST  --train_dir=/userhome/tensorflow-distributed/output --ps_hosts=$PAI_TASK_ROLE_ps_HOST_LIST --worker_hosts=$PAI_TASK_ROLE_worker_HOST_LIST --job_name=ps --task_index=$PAI_CURRENT_TASK_ROLE_CURRENT_TASK_INDEX"
     },
     {
       "name": "worker",
@@ -17,7 +17,7 @@
       "cpuNumber": 2,
       "memoryMB": 16384,
       "gpuNumber": 2,     
-      "command": "env && sleep 60 && python /gdata/tensorflow-distributed/code/mnist_replica.py  --num_gpus=2 --batch_size=32 --data_dir=/gdata/tensorflow-distributed/data  --train_dir=/userhome/tensorflow-distributed/output --ps_hosts=$PAI_TASK_ROLE_ps_HOST_LIST --worker_hosts=$PAI_TASK_ROLE_worker_HOST_LIST --job_name=worker --task_index=$PAI_CURRENT_TASK_ROLE_CURRENT_TASK_INDEX"
+      "command": "cd /userhome && wget -c https://raw.githubusercontent.com/Leinao/LeinaoPAI/master/example/tensorflow-distributed/mnist_replica.py && python /userhome/mnist_replica.py  --num_gpus=2 --batch_size=32 --data_dir=/gdata/MNIST  --train_dir=/userhome/tensorflow-distributed/output --ps_hosts=$PAI_TASK_ROLE_ps_HOST_LIST --worker_hosts=$PAI_TASK_ROLE_worker_HOST_LIST --job_name=worker --task_index=$PAI_CURRENT_TASK_ROLE_CURRENT_TASK_INDEX"
     }
   ],
   "killAllOnCompletedTaskNumber": 2,
