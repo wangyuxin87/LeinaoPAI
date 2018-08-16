@@ -81,9 +81,9 @@ flags.DEFINE_boolean(
     "will use the worker hosts via their GRPC URLs (one client process "
     "per worker host). Otherwise, will create an in-process TensorFlow "
     "server.")
-flags.DEFINE_string("ps_hosts","localhost:1002",
+flags.DEFINE_string("ps_hosts","localhost:1001",
                     "Comma-separated list of hostname:port pairs")
-flags.DEFINE_string("worker_hosts", "localhost:1003,localhost:1004",
+flags.DEFINE_string("worker_hosts", "localhost:1002,localhost:1003",
                     "Comma-separated list of hostname:port pairs")
 flags.DEFINE_string("job_name", None,"job name: worker or ps")
 
@@ -92,8 +92,7 @@ FLAGS = flags.FLAGS
 
 IMAGE_PIXELS = 28
 
-
-def getRoleSpec(role_num, role_spec, role):
+def getRoleSpec(env_dict, role_num, role_spec, role):
   for i in range(role_num):
     env_ps_port_list = "PAI_PORT_LIST_{}_{}".format(role, i)
     port_list = env_dict[env_ps_port_list].split(',')
@@ -102,7 +101,7 @@ def getRoleSpec(role_num, role_spec, role):
       role_spec[ip_index] = role_spec[ip_index] + ":10001"
       continue
     ip_index = role_spec.index(port_list[0])
-    role_spec[ip_index] = role_spec[ip_index] + port_list[1]
+    role_spec[ip_index] = role_spec[ip_index] + ":" + port_list[1]
   return role_spec
 
 
@@ -124,9 +123,10 @@ def main(unused_argv):
   worker_spec = FLAGS.worker_hosts.split(",")
   ps_num = len(env_dict['PAI_TASK_ROLE_ps_HOST_LIST'].split(","))
   worker_num = len(env_dict['PAI_TASK_ROLE_worker_HOST_LIST'].split(","))
-  ps_spec = getRoleSpec(ps_num, ps_spec, "ps")
-  worker_spec = getRoleSpec(worker_num, worker_spec, "worker")
-
+  print("ps_num:{}".format(ps_num)) 
+  print("worker_num:{}".format(worker_num))
+  ps_spec = getRoleSpec(env_dict, ps_num, ps_spec, "ps")
+  worker_spec = getRoleSpec(env_dict, worker_num, worker_spec, "worker")
   # Get the number of workers.
   num_workers = len(worker_spec)
 
