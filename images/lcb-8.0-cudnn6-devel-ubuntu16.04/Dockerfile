@@ -1,4 +1,4 @@
-# This image contains all the libs and environment necessary for compiling and running Faster R-CNN
+&# This image contains all the libs and environment necessary for compiling and running Faster R-CNN
 FROM 10.11.3.8:5000/nvidia/cuda:8.0-cudnn6-devel-ubuntu16.04
 
 ENV LD_LIBRARY_PATH=/usr/local/cuda/lib64:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH PATH=/usr/local/cuda-8.0/bin:$PATH
@@ -44,7 +44,7 @@ COPY requirements.txt ./
 
 RUN pip install --upgrade pip && hash -r 
 
-RUN	pip install -r requirements.txt
+RUN	pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
 
 RUN mkdir ~/.pip && echo "[global]" > ~/.pip/pip.conf && \
         echo "index-url=https://mirrors.ustc.edu.cn/pypi/web/simple" >> ~/.pip/pip.conf && \
@@ -73,8 +73,9 @@ RUN	pip install opencv-python easydict  && \
 		python3-pip \
 		python3-tk \
 		time \
-          && \
-	pip install numpy \
+		vim \
+		&& \
+	pip install -i https://pypi.tuna.tsinghua.edu.cn/simple numpy \
 		scipy \
 		sklearn \
 		matplotlib \
