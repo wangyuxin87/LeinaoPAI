@@ -19,5 +19,5 @@
 ## Build
 
 ```bash
-docker build -t py27-pyth41-tf15-cu90:v2 ./images/py27-pyth41-tf15-cu90.v2/Dockerfile
+docker build -t py27-pyth41-tf15-cu90:v2 ./images/py27-pyth41-tf15-cu90.v2/
 ```
