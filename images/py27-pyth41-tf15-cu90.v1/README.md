@@ -1,4 +1,4 @@
-# py27-pyth41-tf15-cu90
+# py27-pyth41-tf15-cu90:v1
 
 ## Feature
 
@@ -13,5 +13,5 @@
 ## Build
 
 ```bash
-docker build -t py27-pyth41-tf15-cu90:v1 -f ./images/py27-pyth41-tf15-cu90/Dockerfile
+docker build -t py27-pyth41-tf15-cu90:v1 ./images/py27-pyth41-tf15-cu90.v1
 ```
