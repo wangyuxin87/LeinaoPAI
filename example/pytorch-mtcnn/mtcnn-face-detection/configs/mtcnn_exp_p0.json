@@ -1,0 +1,31 @@
+{
+  "exp_name": "mtcnn_exp_p0",
+  "trainer": "MTCNNTrainer",
+  "net": "PNet",
+  "mode": "train",
+
+  "cuda": true,
+  "gpu_device": 0,
+  "seed": 1337,
+
+  "img_size": 12,
+  "input_channels": 3,
+  "num_landmarks": 5,
+
+
+  "learning_rate": 1e-3,
+
+  "batch_size": 512,
+  "max_epoch": 10,
+
+
+  "checkpoint_file": "checkpoint.pth.tar",
+
+  "data_root": "",
+  "data_npy": "/userhome/mtcnn_dataset/12/img.npy",
+  "pnet_train_list": "./data/train_anno_12.txt",
+  "pnet_valid_list": "./data/valid_anno_12.txt",
+  "data_loader_workers": 4,
+  "pin_memory": true,
+  "async_loading": true
+}
