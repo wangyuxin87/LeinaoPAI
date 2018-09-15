@@ -1,17 +1,18 @@
 {
-    "jobName": "pytorch-imagenet",
+    "jobName": "pytorch-imagenet-1gpu-",
     "image": "10.11.3.8:5000/pai-images/deepo:v2.0",
     "gpuType": "",
     "killAllOnCompletedTaskNumber": 1,
     "retryCount": 0,
     "taskRoles": [
         {
-            "name": "run-on-1-gpu",
+            "name": "run_on_1_gpu",
             "taskNumber": 1,
             "cpuNumber": 8,
-            "memoryMB": 65536,
+            "memoryMB": 8192,
+            "shmMB": 1024,
             "gpuNumber": 1,
-            "command": "cd /userhome/; git clone https://github.com/Leinao/LeinaoPAI.git; cd LeinaoPAI/example/pytorch-imagenet/; python main.py --batch-size 64 --gpu_num 1"
+            "command": "cd /userhome/; if [ ! -d LeinaoPAI ]; then  git clone https://github.com/Leinao/LeinaoPAI.git; fi; cd LeinaoPAI/example/pytorch-imagenet/; python main.py --batch-size 64 --gpu_num 1"
         }
     ]
 }
