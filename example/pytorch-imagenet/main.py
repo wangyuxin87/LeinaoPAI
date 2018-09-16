@@ -152,7 +152,6 @@ def main():
 
     print("start train...\n");
 
-    best_prec1 = 0
     for epoch in range(args.start_epoch, args.epochs):
         adjust_learning_rate(optimizer, epoch)
 
@@ -163,7 +162,7 @@ def main():
         prec1, prec5 = validate(val_loader, model, criterion)
 
         # remember best prec@1 and save checkpoint
-        best_prec1 = max(prec1, best_prec1)
+        best_prec1 = max(prec1, best_prec1) if 'best_prec1' in vars() else 0
 
         save_checkpoint({
             'epoch': epoch + 1,
