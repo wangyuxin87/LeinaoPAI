@@ -1,0 +1,17 @@
+{
+  "jobName": "release_activity",
+  "image": "10.11.3.8:5000/pai-images/deepo:v2.0",
+  "gpuType": "",
+  "killAllOnCompletedTaskNumber": 1,
+  "retryCount": 0,
+  "taskRoles": [
+    {
+      "name": "demo",
+      "taskNumber": 1,
+      "cpuNumber": 4,
+      "memoryMB": 47104,
+      "gpuNumber": 3,
+      "command": "export ACTIVITY_ID=_ad7d2bc8117f449893f007da80d8072b && cd /gshare/$PAI_USER_NAME/cmmodels/$ACTIVITY_ID && pip install --upgrade pip && apt-get install -y unzip && apt-get install -y zip && apt-get install -y rar && apt-get install -y unrar && pip install pymysql && python3 user_activity.py"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+    "types":[
+        {
+            "name":"caffe",
+            "ver":1.2
+        },
+        {
+            "name":"torch",
+            "ver":2.2
+        },{
+            "name":"keras",
+            "ver":2.2
+        }
+    ]
+}
