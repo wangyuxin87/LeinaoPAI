@@ -12,7 +12,7 @@
             "memoryMB": 65536,
             "shmMB": 8192,
             "gpuNumber": 4,
-            "command": "cd /userhome/; if [ ! -d LeinaoPAI ]; then  git clone https://github.com/Leinao/LeinaoPAI.git; fi; cd LeinaoPAI/example/pytorch-imagenet/; python main.py --batch-size 256 --gpu_num 4"
+            "command": "cd /userhome/; if [ ! -d LeinaoPAI ]; then  git clone https://github.com/Leinao/LeinaoPAI.git; fi; mkdir -p checkpoints; python /userhome/LeinaoPAI/example/pytorch-imagenet/main.py --batch-size 256 --gpu_num 4"
         }
     ]
 }
