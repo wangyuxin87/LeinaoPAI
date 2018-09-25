@@ -1,0 +1,14 @@
+{
+  "jobName": "jobName_test",	
+  "image": "ubuntu:16.04",
+  "taskRoles": [
+    {
+      "name": "hello_gpu_cluster",
+      "taskNumber": 1,
+      "cpuNumber": 1,
+      "memoryMB": 512,
+      "gpuNumber": 0,
+      "command": "cd /userhome; sleep 30; mkdir -p output; date > output/out.txt; echo finished"
+    }
+  ]
+}

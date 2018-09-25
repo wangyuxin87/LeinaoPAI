@@ -2,7 +2,6 @@
     "jobName": "pytorch-imagenet-1gpu-",
     "image": "10.11.3.8:5000/pai-images/deepo:v2.0",
     "gpuType": "",
-    "killAllOnCompletedTaskNumber": 1,
     "retryCount": 0,
     "taskRoles": [
         {
