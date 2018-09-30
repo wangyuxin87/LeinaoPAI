@@ -13,5 +13,5 @@
 
 ## Build
 ```bash
-docker build -t py36-pytorch41-tf11-bashrc ./images/py36-pytorch41-tf11-bashrc/
+docker build -t py36-pytorch41-tf111-bashrc ./images/py36-pytorch41-tf111-bashrc/
 ```
