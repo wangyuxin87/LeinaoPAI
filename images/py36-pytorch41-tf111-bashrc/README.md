@@ -11,7 +11,7 @@
 * tensorflow 1.11.0
 
 ## Feature
-* customizable [.bashrc](https://github.com/Chaway/LeinaoPAI/blob/master/images/py36-pytorch41-tf111-bashrc/.bashrc)  (Note this `.bashrc` is under `/userhome/root` , and its modification can be preserved)
+- customizable [.bashrc](https://github.com/Chaway/LeinaoPAI/blob/master/images/py36-pytorch41-tf111-bashrc/.bashrc)  (Note this `.bashrc` is under `/userhome/root` , and its modification can be preserved)
 - users can set own Environment Variables in `/userhome/root/.bashrc`. For example, 
 ```bash
  export HOME=/userhome/root
