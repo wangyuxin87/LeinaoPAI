@@ -96,15 +96,6 @@ alias l='ls -CF'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f /userhome/root/.bash_aliases ]; then
-    . /userhome/root/.bash_aliases
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -137,14 +128,22 @@ fi
 #export LANG=C.UTF-8
 
 #==============================================================================
-# add some ENV to set customized configuration files of different tools
+# set new $HOME, users can put some default configuration files here
+# For example, ~/.bash_aliases, ~/.bash_history, ~/.vimrc, ~/.vim, ~/.inputrc
 #==============================================================================
-#export PIP_CONFIG_FILE=/userhome/root/.pip/pip.config 
-#export VIM=/userhome/root
-#export INPUTRC=/userhome/root/.inputrc 
-#export HISTFILE=/userhome/root/.bash_history
+export HOME=/userhome/root
+#export PIP_CONFIG_FILE=~/.pip/pip.config 
 
-#[[ -s /userhome/root/.autojump/etc/profile.d/autojump.sh ]] && source /userhome/root/.autojump/etc/profile.d/autojump.sh
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+#[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
 
 clear
 trap 'echo -ne "\e[0m"' DEBUG
