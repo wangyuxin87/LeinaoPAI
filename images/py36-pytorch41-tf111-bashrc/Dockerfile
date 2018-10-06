@@ -46,7 +46,7 @@ RUN wget --quiet http://download.pytorch.org/whl/cu92/torch-0.4.1-cp36-cp36m-lin
     pip --no-cache-dir install -i https://pypi.tuna.tsinghua.edu.cn/simple tensorflow-gpu && \
     rm torch-0.4.1-cp36-cp36m-linux_x86_64.whl
 
-RUN clone git://github.com/wting/autojump.git 
+RUN git clone git://github.com/wting/autojump.git 
 
 EXPOSE 6006
 WORKDIR /userhome
