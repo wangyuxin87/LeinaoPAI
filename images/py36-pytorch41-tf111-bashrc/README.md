@@ -1,6 +1,6 @@
-# py36-pytorch41-tf11-bashrc
+# py36-pytorch41-tf111-bashrc
 
-## Feature
+## Packages
 * cuda9.2
 * cudnn7
 * skimage
@@ -9,7 +9,14 @@
 * matplotlib
 * pytorch 0.4.1
 * tensorflow 1.11.0
-* customizable [.bashrc](https://github.com/Chaway/LeinaoPAI/blob/master/images/py36-pytorch41-tf111-bashrc/.bashrc) 
+
+## Feature
+- customizable [.bashrc](https://github.com/Chaway/LeinaoPAI/blob/master/images/py36-pytorch41-tf111-bashrc/.bashrc)  (Note this `.bashrc` is under `/userhome/root` , and its modification can be preserved)
+- users can set own Environment Variables in `/userhome/root/.bashrc`. For example, 
+```bash
+ export HOME=/userhome/root
+```
+Then some customized and preservable configration files (e.g., `.vimrc`, `.vim`, `.bash_aliases`, `.inputrc`) will be supported under `/userhome/root` 
 
 ## Build
 ```bash
