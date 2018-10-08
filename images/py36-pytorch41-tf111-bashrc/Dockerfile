@@ -1,6 +1,6 @@
 FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
 
-ENV LD_LIBRARY_PATH /usr/lib/x86_64-linux-gnu:/usr/local/cuda-9.2/lib64:$LD_LIBRARY_PATH
+ENV LD_LIBRARY_PATH /usr/lib/x86_64-linux-gnu:/usr/local/cuda-9.0/lib64:$LD_LIBRARY_PATH
 ENV PATH /opt/conda/bin:$PATH
 
 # set a customizable and preservable ".bashrc" if necessary 
@@ -39,12 +39,10 @@ RUN conda config --set show_channel_urls yes && \
 RUN conda install -y numpy matplotlib scikit-image pillow opencv cython && \
     conda clean -y --all
 
-RUN wget --quiet http://download.pytorch.org/whl/cu92/torch-0.4.1-cp36-cp36m-linux_x86_64.whl && \
-    pip install --upgrade pip && \
-    pip install torch-0.4.1-cp36-cp36m-linux_x86_64.whl && \
+RUN pip install --upgrade pip && \
+    pip --no-cache-dir install -i https://pypi.tuna.tsinghua.edu.cn/simple torch && \
     pip --no-cache-dir install -i https://pypi.tuna.tsinghua.edu.cn/simple torchvision && \
-    pip --no-cache-dir install -i https://pypi.tuna.tsinghua.edu.cn/simple tensorflow-gpu && \
-    rm torch-0.4.1-cp36-cp36m-linux_x86_64.whl
+    pip --no-cache-dir install -i https://pypi.tuna.tsinghua.edu.cn/simple tensorflow-gpu
 
 EXPOSE 6006
 WORKDIR /userhome

@@ -1,7 +1,7 @@
 # py36-pytorch41-tf111-bashrc
 
 ## Packages
-* cuda9.2
+* cuda9.0
 * cudnn7
 * skimage
 * PIL
