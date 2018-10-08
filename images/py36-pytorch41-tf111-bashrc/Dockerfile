@@ -44,5 +44,6 @@ RUN pip install --upgrade pip && \
     pip --no-cache-dir install -i https://pypi.tuna.tsinghua.edu.cn/simple torchvision && \
     pip --no-cache-dir install -i https://pypi.tuna.tsinghua.edu.cn/simple tensorflow-gpu
 
+
 EXPOSE 6006
 WORKDIR /userhome
