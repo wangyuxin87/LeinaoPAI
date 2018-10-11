@@ -66,7 +66,7 @@
 
 ### 3.1 Hello GPU Cluster
 
-编写任务提交脚本
+编写[任务提交脚本](https://raw.githubusercontent.com/Leinao/LeinaoPAI/master/example/hello-gpu-cluster/hello_gpu_cluster.json)
 
 ```json
 {
@@ -95,7 +95,7 @@
 
 
 ### 3.2 Pytorch训练Imagenet
-编写任务提交脚本
+编写[任务提交脚本](https://raw.githubusercontent.com/Leinao/LeinaoPAI/master/example/pytorch-imagenet/job-4gpu.json)
 ```json
 {
     "jobName": "pytorch-imagenet-4gpu-",
