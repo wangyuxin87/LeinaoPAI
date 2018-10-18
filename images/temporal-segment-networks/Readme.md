@@ -2,7 +2,9 @@
 
 特性
 =============
-> * OpenCV
+> * Cuda9
+> * Cudnn7
+> * OpenCV 2.4.13
 > * Caffe
 > * DenseFlow
 > * TSN codebase
