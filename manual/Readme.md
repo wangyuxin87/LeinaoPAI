@@ -124,6 +124,6 @@ TODO
 ## 四、问题反馈
 
 1. 优先选择[彼塔社区](https://www.bitahub.com/views/communicate.html)中反馈，社区和集群的账号是通用的。
-
 2. 也可以在微信群中提问题。
-  ![](http://img.cnbita.com/_4978e26624064dcf8087a07ef5a004f7weixin_20180919155503.png)
+     ![](http://img.cnbita.com/_4978e26624064dcf8087a07ef5a004f7weixin_20180919155503.png)
+
