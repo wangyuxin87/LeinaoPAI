@@ -28,6 +28,10 @@ RUN make
 RUN make ops
 
 # add ssh support
-RUN apt-get update && \
+RUN sed -i 's/us-east-1.ec2.archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list && \
+    rm -rf /var/lib/apt/lists/* \
+           /etc/apt/sources.list.d/cuda.list \
+           /etc/apt/sources.list.d/nvidia-ml.list && \    
+    apt-get update && \
     apt-get install -y openssh-client openssh-server && \
     apt-get clean
