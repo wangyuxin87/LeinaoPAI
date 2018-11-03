@@ -1,0 +1,19 @@
+{
+    "jobName": "jupyter-bsvu7x",
+    "image": "10.11.3.8:5000/user-images/deepo:all-jupyter-py36-cu90",
+    "gpuType": "debug",
+    "retryCount": 0,
+    "taskRoles": [
+        {
+            "name": "test",
+            "taskNumber": 1,
+            "cpuNumber": 1,
+            "memoryMB": 1024,
+            "shmMB": 64,
+            "gpuNumber": 0,
+            "minFailedTaskCount": 1,
+            "minSucceededTaskCount": null,
+            "command": "service ssh stop;  jupyter notebook --no-browser --ip=0.0.0.0 --allow-root --notebook-dir='/userhome' --port=22"
+        }
+    ]
+}
