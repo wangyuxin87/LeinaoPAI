@@ -44,7 +44,7 @@ COPY requirements.txt ./
 
 RUN pip install --upgrade pip && hash -r 
 
-RUN	pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
+RUN pip install jupyter && pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
 
 RUN mkdir ~/.pip && echo "[global]" > ~/.pip/pip.conf && \
         echo "index-url=https://mirrors.ustc.edu.cn/pypi/web/simple" >> ~/.pip/pip.conf && \
@@ -89,7 +89,7 @@ RUN	pip install opencv-python easydict  && \
 		imageio \
 		cython \
 		ipython \
-		jupyter \
+		# jupyter \
 		SimpleITK \
 		pydicom \
 		tqdm \
@@ -98,6 +98,7 @@ RUN	pip install opencv-python easydict  && \
 		tensorboardX \
 		tensorflow-gpu==1.4.0 && \
     pip install torch==0.4.0 torchvision \
-    	cython &&\
-	git clone https://github.com/NVIDIA/nccl.git && cd nccl && make -j install
+    	cython 
+
+RUN git clone https://github.com/NVIDIA/nccl.git && cd nccl && make -j src.build  
 
