@@ -34,7 +34,7 @@
             "cpuNumber": 1,
             "memoryMB": 2048,
             "gpuNumber": 1,
-            "command": "cd /userhome; python mnist-tensorflow.py"
+            "command": "pip install tqdm;cd /userhome; python mnist-tensorflow.py"
         }
     ]
 }
@@ -57,7 +57,7 @@
             "cpuNumber": 1,
             "memoryMB": 2048,
             "gpuNumber": 1,
-            "command": "cd /userhome; python mnist-pytorch.py"
+            "command": "pip install tqdm;cd /userhome; python mnist-pytorch.py"
         }
     ]
 }
@@ -80,7 +80,7 @@
             "cpuNumber": 1,
             "memoryMB": 2048,
             "gpuNumber": 1,
-            "command": "pip install pytorch-ignite; cd /userhome; python mnist-pytorch-ignite.py"
+            "command": "pip install pytorch-ignite tqdm; cd /userhome; python mnist-pytorch-ignite.py"
         }
     ]
 }
@@ -101,7 +101,7 @@
             "cpuNumber": 1,
             "memoryMB": 2048,
             "gpuNumber": 1,
-            "command": "cd /userhome; python mnist-mxnet.py"
+            "command": "pip install tqdm;cd /userhome; python mnist-mxnet.py"
         }
     ]
 }
