@@ -1,6 +1,6 @@
 ## 类脑计算平台使用样例-MNIST数据训练
 
-本例程给出一个简单的使用类脑计算平台的训练MNIST数据集的样例，其中包括了tensorflow, pytorch和mxnet三种常用框架。针对pytorch框架，推荐使用[ignite](https://pytorch.org/ignite/)包。训练中需要使用的MINST数据已经包含在了平台数据集资源中，所以本例程中MNIST数据不需要另行下载（也不需要使用深度学习框架中相应的下载工具。为了实现此目标，我们对部分框架中的数据载入代码做了相应定制修改）。
+本例程给出一个简单的使用类脑计算平台的训练MNIST数据集的样例，其中包括了tensorflow, pytorch和mxnet三种常用框架。训练中需要使用的MINST数据已经包含在了平台数据集资源中，所以本例程中MNIST数据不需要另行下载（也不需要使用深度学习框架中相应的下载工具。为了实现此目标，我们对部分框架中的数据载入代码做了相应定制修改）。
 
 
 
@@ -64,27 +64,6 @@
 ```
 
 
-
-#### pytorch-ignite：
-
-```json
-{
-    "jobName": "mnist-pytorch-ignite",
-    "image": "10.11.3.8:5000/pai-images/deepo:v2.0",
-    "gpuType": "gtx1080ti",
-    "retryCount": 1,
-    "taskRoles": [
-        {
-            "name": "mnist",
-            "taskNumber": 1,
-            "cpuNumber": 1,
-            "memoryMB": 2048,
-            "gpuNumber": 1,
-            "command": "pip install pytorch-ignite tqdm; cd /userhome; python mnist-pytorch-ignite.py"
-        }
-    ]
-}
-```
 
 #### mxnet：
 
