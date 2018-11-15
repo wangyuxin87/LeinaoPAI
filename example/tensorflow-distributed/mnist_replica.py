@@ -96,7 +96,7 @@ def getRoleSpec(env_dict, role_num, role_spec, role):
   for i in range(role_num):
     env_ps_port_list = "PAI_PORT_LIST_{}_{}".format(role, i)
     port_list = env_dict[env_ps_port_list].split(',')
-    if env_dict['PAI_CURRENT_CONTAINER_IP'] == port_list[0] and env_dict['PAI_CURRENT_TASK_ROLE_NAME'] == role and env_dict['PAI_TASK_INDEX'] == str(i):
+    if env_dict['PAI_CONTAINER_HOST_IP'] == port_list[0] and env_dict['PAI_CURRENT_TASK_ROLE_NAME'] == role and env_dict['PAI_TASK_INDEX'] == str(i):
       ip_index = role_spec.index(port_list[0])
       role_spec[ip_index] = role_spec[ip_index] + ":10001"
       continue
