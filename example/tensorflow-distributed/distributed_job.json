@@ -1,7 +1,7 @@
 {
   "jobName": "tensorflow-distributed-001",
   "image": "10.11.3.8:5000/pai-images/pai.run.deepo:v1.1",
-
+  "gpuType": "titanxp",
   "taskRoles": [
     {
       "name": "ps",
