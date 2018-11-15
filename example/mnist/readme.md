@@ -24,7 +24,7 @@
 {
     "jobName": "mnist-tensorflow",
     "image": "10.11.3.8:5000/pai-images/deepo:v2.0",
-    "gpuType": "1080ti",
+    "gpuType": "gtx1080ti",
     "killAllOnCompletedTaskNumber": 1,
     "retryCount": 0,
     "taskRoles": [
