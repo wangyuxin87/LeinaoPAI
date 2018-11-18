@@ -32,7 +32,8 @@ RUN	sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list &&
 		python-tk \
 		openssh-client \
 		openssh-server \
-                autossh && \
+                autossh \
+                expect && \
 	apt-get install --no-install-recommends libboost-all-dev && \
 	apt-get install libopenblas-dev \
 		liblapack-dev \
