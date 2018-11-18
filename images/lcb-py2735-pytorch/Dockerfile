@@ -31,7 +31,8 @@ RUN	sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list &&
 		liblapack-dev \
 		python-tk \
 		openssh-client \
-		openssh-server && \
+		openssh-server \
+                autossh && \
 	apt-get install --no-install-recommends libboost-all-dev && \
 	apt-get install libopenblas-dev \
 		liblapack-dev \
@@ -105,6 +106,8 @@ RUN	pip install opencv-python easydict  && \
     pip3 install torch==0.4.1 torchvision \
         datetime \
         scipy \
+        matplotlib \
+        opencv-python \
         && \
 	git clone https://github.com/NVIDIA/nccl.git && cd nccl && make -j src.build
 
