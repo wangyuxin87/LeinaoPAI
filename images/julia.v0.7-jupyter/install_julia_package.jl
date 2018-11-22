@@ -7,7 +7,7 @@ Pkg.add.([
           "DataStructures", "LightGraphs", "Calculus", "DataFrames",
           "StatsBase", "Distributions", "HypothesisTests", "GLM",
           "JuMP", "Optim", "Roots", "ODBC", "JDBC",
-          "Knet", "Clusterig", "DecisionTree", "PyCall",
+          "Knet", "Clustering", "DecisionTree", "PyCall",
           "JSON", "HDF5", "JLD", "QuantEcon",
 
           # JuliaPlots
