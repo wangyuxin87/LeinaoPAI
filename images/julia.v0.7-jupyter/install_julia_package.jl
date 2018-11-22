@@ -9,6 +9,7 @@ Pkg.add.([
           "JuMP", "Optim", "Roots", "ODBC", "JDBC",
           "Knet", "Clustering", "DecisionTree", "PyCall",
           "JSON", "HDF5", "JLD", "QuantEcon",
+          "SQLite",
 
           # JuliaPlots
           "Plots", "PyPlot", "PlotlyJS",
