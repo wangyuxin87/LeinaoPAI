@@ -1,7 +1,7 @@
 using Pkg
 Pkg.add.([
           # tabular
-          "DataFrames", "CSV", "Query"
+          "DataFrames", "CSV", "Query",
 
           # JuliaPro
           "DataStructures", "LightGraphs", "Calculus", "DataFrames",
