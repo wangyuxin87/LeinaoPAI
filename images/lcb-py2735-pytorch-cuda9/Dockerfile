@@ -1,6 +1,6 @@
 # This image contains all the libs and environment necessary for compiling and running Faster R-CNN
-FROM 10.11.3.8:5000/nvidia/cuda:8.0-cudnn6-devel-ubuntu16.04
-#FROM nvidia/cuda:8.0-cudnn6-devel-ubuntu16.04
+FROM 10.11.3.8:5000/nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
+#FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
 
 ENV LD_LIBRARY_PATH=/usr/local/cuda/lib64:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH PATH=/usr/local/cuda-8.0/bin:$PATH
 
