@@ -1,0 +1,28 @@
+{
+  "jobName": "tensorflow_verbs_test",
+  "image": "10.11.3.8:5000/pai-images/docker-tf-1-3:latest",
+  "gpuType": "titanxp",
+  "retryCount": 0,
+  "taskRoles": [
+    {
+      "name": "ps",
+      "memoryMB": 8192,
+      "shmMB": 64,
+      "taskNumber": 1,
+      "cpuNumber": 2,
+      "gpuNumber": 0,
+      "minFailedTaskCount": 1,	  
+      "command": "cd /userhome && python rdma_train.py --num_gpus=0 --batch_size=32 --data_dir=/gdata/tensorflow-distributed/data  --train_dir=/userhome/tensorflow-distributed/output --ps_hosts=$PAI_TASK_ROLE_ps_HOST_LIST --worker_hosts=$PAI_TASK_ROLE_worker_HOST_LIST --job_name=ps --task_index=$PAI_CURRENT_TASK_ROLE_CURRENT_TASK_INDEX"
+    },
+    {
+      "name": "worker",
+      "taskNumber": 4,
+      "cpuNumber": 2,
+      "memoryMB": 16384,
+      "gpuNumber": 1,
+      "minFailedTaskCount": 1,	  
+      "minSucceededTaskCount": 4,	  
+      "command": "cd /userhome && sleep 60 && python rdma_train.py --num_gpus=1 --batch_size=32 --data_dir=/gdata/tensorflow-distributed/data  --train_dir=/userhome/tensorflow-distributed/output --ps_hosts=$PAI_TASK_ROLE_ps_HOST_LIST --worker_hosts=$PAI_TASK_ROLE_worker_HOST_LIST --job_name=worker --task_index=$PAI_CURRENT_TASK_ROLE_CURRENT_TASK_INDEX"
+    }
+  ]
+}

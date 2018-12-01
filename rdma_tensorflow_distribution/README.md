@@ -1,0 +1,2 @@
+这个目录主要用于RDMA通信模式下的tensorflow多机多卡分布式训练。注意：在提交任务前请先将rdma_train.py放在自己的/userhome目录下，然后再导入json文件提交job！
+
