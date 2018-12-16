@@ -74,9 +74,9 @@ RUN	mkdir ~/.pip && echo "[global]" > ~/.pip/pip.conf && \
 	echo "index-url=https://pypi.tuna.tsinghua.edu.cn/simple" >> ~/.pip/pip.conf && \
 	echo "format = columns" >> ~/.pip/pip.conf
 
-RUN	pip install -y --upgrade pip && pip3 install -y --upgrade pip
+RUN	pip install --upgrade pip && pip3 install --upgrade pip
 
-RUN	pip2 install -y scikit-image \
+RUN	pip2 install scikit-image \
 		Cython \
 		numpy==1.15.2 \
 		scipy \
@@ -121,7 +121,7 @@ RUN	pip2 install -y scikit-image \
 		torch==0.4.0 \
 		torchvision && \
 		
-	pip3 install -y tqdm \
+	pip3 install tqdm \
 		fire \
 		SimpleITK \
 		pydicom \
