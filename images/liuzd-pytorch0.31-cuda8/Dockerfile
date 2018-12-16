@@ -120,7 +120,6 @@ RUN	pip2 install -y scikit-image \
 		tensorboard==1.11.0 \
 		torch==0.4.0 \
 		torchvision && \
-
 		
 	pip3 install -y tqdm \
 		fire \
