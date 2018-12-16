@@ -17,6 +17,8 @@ LeinaoPAI支持分布式训练任务，每个container对外通信端口为3个�
       "cpuNumber": 2,
       "memoryMB": 8192,
       "gpuNumber": 0,
+      "minSucceededTaskCount": 2,
+      "minFailedTaskCount": 1,      
       "command": "python /gdata/tensorflow-distributed/code/mnist_replica.py  --num_gpus=0 --batch_size=32 --data_dir=/gdata/tensorflow-distributed/data  --train_dir=/userhome/tensorflow-distributed/output --ps_hosts=$PAI_TASK_ROLE_ps_HOST_LIST --worker_hosts=$PAI_TASK_ROLE_worker_HOST_LIST --job_name=ps --task_index=$PAI_CURRENT_TASK_ROLE_CURRENT_TASK_INDEX"
     },
     {
@@ -25,10 +27,11 @@ LeinaoPAI支持分布式训练任务，每个container对外通信端口为3个�
       "cpuNumber": 2,
       "memoryMB": 16384,
       "gpuNumber": 2,
+      "minSucceededTaskCount": 2,(**该参数请保持与worker的taskNumber一致**)
+      "minFailedTaskCount": 1,      
       "command": "python /gdata/tensorflow-distributed/code/mnist_replica.py  --num_gpus=2 --batch_size=32 --data_dir=/gdata/tensorflow-distributed/data  --train_dir=/userhome/tensorflow-distributed/output --ps_hosts=$PAI_TASK_ROLE_ps_HOST_LIST --worker_hosts=$PAI_TASK_ROLE_worker_HOST_LIST --job_name=worker --task_index=$PAI_CURRENT_TASK_ROLE_CURRENT_TASK_INDEX"
     }
   ],
-  "killAllOnCompletedTaskNumber": 2, (**该参数请保持与worker的taskNumber一致**)
   "retryCount": 0
 }
 ```
