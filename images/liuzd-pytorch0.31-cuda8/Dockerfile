@@ -1,15 +1,9 @@
-# This image contains all the libs and environment necessary for compiling and running Faster R-CNN, Mask R-CNN
+# This image contains all the libs and environment necessary for compiling and running Faster R-CNN
 FROM 10.11.3.8:5000/nvidia/cuda:8.0-cudnn6-devel-ubuntu16.04
 #FROM nvidia/cuda:8.0-cudnn6-devel-ubuntu16.04
 
 ENV LD_LIBRARY_PATH=/usr/local/cuda/lib64:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH PATH=/usr/local/cuda-8.0/bin:$PATH
 ENV LC_ALL=C
-
-# Install the COCO API
-RUN git clone https://github.com/liuxi2018/cocoapi.git /cocoapi
-WORKDIR /cocoapi/PythonAPI
-RUN make install
-
 
 RUN	sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list && \
 	apt-get update && apt-get install -y --no-install-recommends \
@@ -41,7 +35,7 @@ RUN	sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list &&
 		openssh-server \
         autossh \
         expect && \
-	apt-get install --no-install-recommends libboost-all-dev && \	
+	apt-get install --no-install-recommends libboost-all-dev && \
 	apt-get install libopenblas-dev \
 		liblapack-dev \
 		libatlas-base-dev \
@@ -75,6 +69,11 @@ RUN	sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list &&
 		vim \
 		screen \
 		tmux
+
+# Install the COCO API
+RUN git clone https://github.com/liuxi2018/cocoapi.git /cocoapi
+WORKDIR /cocoapi/PythonAPI
+RUN make install
 
 RUN	mkdir ~/.pip && echo "[global]" > ~/.pip/pip.conf && \
 	echo "index-url=https://pypi.tuna.tsinghua.edu.cn/simple" >> ~/.pip/pip.conf && \
@@ -127,7 +126,7 @@ RUN	pip2 install scikit-image \
 		torch==0.4.0 \
 		torchvision && \
 
-
+		
 	pip3 install tqdm \
 		fire \
 		SimpleITK \
