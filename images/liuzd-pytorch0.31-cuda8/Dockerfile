@@ -70,11 +70,6 @@ RUN	sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list &&
 		screen \
 		tmux
 
-# Install the COCO API
-RUN git clone https://github.com/liuxi2018/cocoapi.git /cocoapi
-WORKDIR /cocoapi/PythonAPI
-RUN make install
-
 RUN	mkdir ~/.pip && echo "[global]" > ~/.pip/pip.conf && \
 	echo "index-url=https://pypi.tuna.tsinghua.edu.cn/simple" >> ~/.pip/pip.conf && \
 	echo "format = columns" >> ~/.pip/pip.conf
@@ -154,6 +149,12 @@ RUN	pip2 install -y scikit-image \
 		scipy \
 		matplotlib \
 		opencv-python
+		
+# Install the COCO API
+RUN git clone https://github.com/liuxi2018/cocoapi.git /cocoapi
+WORKDIR /cocoapi/PythonAPI
+RUN make install
+
 WORKDIR	/opt
 
 RUN	git clone https://github.com/NVIDIA/nccl.git && cd nccl && make -j install && cd .. && rm -rf nccl
