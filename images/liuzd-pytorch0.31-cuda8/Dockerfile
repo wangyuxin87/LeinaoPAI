@@ -35,15 +35,15 @@ RUN	sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list &&
 		openssh-server \
         autossh \
         expect && \
-	apt-get install --no-install-recommends libboost-all-dev && \
-	apt-get install libopenblas-dev \
+	apt-get install -y  --no-install-recommends libboost-all-dev && \
+	apt-get install -y libopenblas-dev \
 		liblapack-dev \
 		libatlas-base-dev \
 		libgflags-dev \
 		libgoogle-glog-dev \
 		liblmdb-dev \
 		gfortran && \
-	apt-get install python-skimage  && \
+	apt-get install -y python-skimage  && \
 	apt-get install -y build-essential git \
 		libprotobuf-dev \
 		libleveldb-dev \
@@ -79,9 +79,9 @@ RUN	mkdir ~/.pip && echo "[global]" > ~/.pip/pip.conf && \
 	echo "index-url=https://pypi.tuna.tsinghua.edu.cn/simple" >> ~/.pip/pip.conf && \
 	echo "format = columns" >> ~/.pip/pip.conf
 
-RUN	pip install --upgrade pip && pip3 install --upgrade pip
+RUN	pip install -y --upgrade pip && pip3 install -y --upgrade pip
 
-RUN	pip2 install scikit-image \
+RUN	pip2 install -y scikit-image \
 		Cython \
 		numpy==1.15.2 \
 		scipy \
@@ -127,7 +127,7 @@ RUN	pip2 install scikit-image \
 		torchvision && \
 
 		
-	pip3 install tqdm \
+	pip3 install -y tqdm \
 		fire \
 		SimpleITK \
 		pydicom \
