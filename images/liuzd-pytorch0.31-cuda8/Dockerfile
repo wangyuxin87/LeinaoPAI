@@ -148,7 +148,8 @@ RUN	pip2 install scikit-image \
 		scipy \
 		matplotlib \
 		opencv-python
-		
+	
+	
 # Install the COCO API
 RUN git clone https://github.com/liuxi2018/cocoapi.git /cocoapi
 WORKDIR /cocoapi/PythonAPI
