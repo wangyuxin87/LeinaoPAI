@@ -1,18 +1,18 @@
-# Docker images for deep learing computer version.
+# Docker images for compiling and running Faster R-CNN and Mask R-CNN.
 
 
 ## py2735-tensorflow-torch
 
 ### Dockerfile
-> - 参考我的github:[py2735-tensorflow-torch](https://github.com/liuboss1992/Df/tree/master/py2735-tensorflow-torch)
+> - 参考github:[lcb-py2735-cuda8](https://github.com/liuxi2018/LeinaoPAI/tree/master/images/lcb-py2735-cuda8)
 
 ### 基本模块
 #### python2.7
 > * torch 0.4.0 
 > * tensorflow 1.4.0
 ### python3.5
-> * torch 0.4.1
-
+> * torch 0.3.1
+> * tensorflow-gpu 1.4.0
 
 ### pip包
 ```shell
@@ -107,15 +107,3 @@ torchvision (0.2.1)
 wheel (0.29.0)
 zope.interface (4.5.0)
 ```
-
-
-### 使用说明
-```shell
-docker pull liuboss/dlcvimg:py2735-tensorflow-torch
-```
-
-
-* * *
-
-如有其他疑问联系本人：liuchuanbin1992@gmail.com
-
