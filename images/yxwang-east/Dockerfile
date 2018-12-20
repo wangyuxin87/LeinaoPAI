@@ -128,6 +128,7 @@ RUN	pip2 install scikit-image \
 		Cython \
 		imageio \
 		easydict \
+		shapely \
 		pandas \
 		medicaltorch \
 		jupyter \
