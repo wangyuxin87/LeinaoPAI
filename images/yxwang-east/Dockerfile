@@ -83,6 +83,7 @@ RUN	pip2 install scikit-image \
 		ipython==5.6.0 \
 		h5py \
 		shapely \
+		tensorflow-plot \
 		leveldb \
 		networkx \
 		nose \
@@ -129,6 +130,7 @@ RUN	pip2 install scikit-image \
 		imageio \
 		easydict \
 		shapely \
+		tensorflow-plot \
 		pandas \
 		medicaltorch \
 		jupyter \
